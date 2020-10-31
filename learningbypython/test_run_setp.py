@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # _*_coding: utf-8 _*_
 
+
 def setup_module():
     print("\nsetup_module,只执行，当有多个测试类的时候使用")
 
@@ -51,4 +52,3 @@ class TestPytest2(object):
 
     def test_four(self):
         print("test_four,测试用例")
-
