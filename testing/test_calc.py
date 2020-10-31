@@ -23,22 +23,24 @@ class TestCalc:
     def teardown_class(self):
         print("计算结束")
 
-    @pytest.mark.parametrize('a,b,expect', [[1, 1, 2], [100, 100, 200], [0.1, 0.1, 0.2], [-1, -1, -2]])
+    @pytest.mark.parametrize('a,b,expect', [[1, 1, 2], [231312322, 100, 231312422], [0.1, 0.1, 0.2], [-1, -1, -2]])
     def test_add(self, a, b, expect):
-        result1 = self.calc.add(a, b)
-        assert result1 == expect
-        print(result1)
+        result = self.calc.add(a, b)
+        assert result == expect
+        print(result)
 
-    @pytest.mark.parametrize('m,n,expect1',
-                             [[0, 100, 0], [2, 1, 2], [0.9, 0.3, 3], [-1, -1, 1], [-2, 2, -1]])
-    def test_div(self, m, n, expect1):
-        result2 = self.calc.div(m, n)
-        assert result2 == expect1
-        print(result2)
+    @pytest.mark.parametrize('a,b,expect', [[0.4, 0.5, 0.9], [2.7, 1.1, 3.8]])
+    def test_add_float(self, a, b, expect):
+        result = self.calc.add(a, b)
+        assert round(result, 2) == expect
 
-    @pytest.mark.parametrize('i,j,expect2',
-                             [[0, 100, -100], [2, 1, 1], [0.9, 0.3, 0.6], [-1, 1, -2], [-2, -2, -0]])
-    def test_div(self, i, j, expect2):
-        result3 = self.calc.sub(i, j)
-        assert result3 == expect2
-        print(result3)
+    @pytest.mark.parametrize('a,b', [[100, 0], [-22, 0], [0.4, 0]])
+    def test_div(self, a, b):
+        with pytest.raises(ZeroDivisionError):
+            self.calc.div(a, b)
+
+    @pytest.mark.parametrize('a,b,expect', [[0, 100, -100], [-1, 1, -2], [-2, -2, -0]])
+    def test_div(self, a, b, expect):
+        result = self.calc.sub(a, b)
+        assert result == expect
+        print(result)
