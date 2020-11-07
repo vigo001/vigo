@@ -1,7 +1,3 @@
-import pytest
+import webdriver from selenium
 
-def func(x):
-    return  x+ 1
 
-def test_answer():
-    assert  func(3) == 5
