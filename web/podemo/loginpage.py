@@ -4,6 +4,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from web.podemo.register_page import RegisterPage
 
+
 class LoginPge:
     def __int__(self, driver: WebDriver):
         self.driver = driver
