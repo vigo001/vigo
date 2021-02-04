@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="web.podemo.loginpage.webdriver" />
+          <option value="web.test_selenium.page.index.driver" />
         </list>
       </option>
     </inspection_tool>
